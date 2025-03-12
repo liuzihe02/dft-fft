@@ -1,0 +1,1 @@
+This directory contains matlab m-files (functions and scripts) necessary for the 1B Signal Processing experiment (A4).  The equipment required to use them correctly is installed on computers in the South Wing Mechanics laborartory.
