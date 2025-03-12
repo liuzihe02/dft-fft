@@ -9,6 +9,8 @@ function [] = setiorates(time,rate)
 %
 % E.g. setiorates(10,1000) % 10 seconds, 1kHz sampling rate
 
+% only works IN PERSON
+
 global in;
 global out;
 global real_time;

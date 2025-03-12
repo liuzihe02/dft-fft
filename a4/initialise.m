@@ -1,4 +1,5 @@
 % initialise - initialises global variables and sets up the board for simultaneous input and output
+% only works IN PERSON
 
 clear all
 
