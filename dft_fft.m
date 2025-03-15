@@ -28,9 +28,11 @@ title('Transform of channel 2')
 % V = axis;
 % axis([0 50 V(3) V(4)])
 
-% Save the most recent figure with explicit renderer settings, using opengl
-print('-dpng', '-r300', '-opengl', 'myanalyse.png')
-fprintf('Plot of analysis1 saved in the current directory\n')
+% Save the most recent figure with explicit renderer settings, if some renders dont work, try either opengl or painters
+%print('-dpng', '-r300', '-opengl', 'myanalyse.png')
+print('-dpng','-r300','-painters','myanalyse.png');
+
+fprintf('Plot of analysis saved in the current directory\n')
 
 hold off
 
