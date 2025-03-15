@@ -1,13 +1,9 @@
 # Investigation of DFT and FFT
 Investigating the Discrete Fourier Transform (DFT) and Fast Fourier Transform (FFT), with applications to response of buildings in earthquakes. We implement these algorithims in `C++` due to much faster execution time (most of `MATLAB`'s functions are written in compiled `C/C++` anyway).
 
-## Running A4 Lab Remotely
+## A4 Lab
 
-### A4 Lab
-
-`F0` is the force transducer on the oscillator, `A1;A2;A3` are the sensors on floors 1,2,3 of the structure, respectively.
-
-`data_ch1` is the data from the input (force transducer), while `data_ch2` is the reading from the accelerometer of the respective floor.
+We run the A4 lab remotely to speed up gathering and processing of data. `F0` is the force transducer on the oscillator, `A1;A2;A3` are the sensors on floors 1,2,3 of the structure, respectively. `data_ch1` is the data from the input (force transducer), while `data_ch2` is the reading from the accelerometer of the respective floor.
 
 ### Data Format
 
@@ -17,7 +13,7 @@ Investigating the Discrete Fourier Transform (DFT) and Fast Fourier Transform (F
 4. files of the form `random20timesLarger_F0AZ_N.mat`  : which give the data resulting from  outputting a superposition of sine waves with random phases (otherwise as in 1. but data has been amplified by a factor of 20).
 
 
-
+### A4 Script
 
 I have set up the A4 lab `matlab` code in the `/a4` folder and relevant data in `/data`. To generate figures as in the A4 lab, run the following matlab code (assuming we are in the home directory):
 
@@ -31,8 +27,9 @@ load('data/sine5_F0A1_300Hz.mat');
 % Create time vector for plotting
 %real_rate should be set at the samplimg frequency
 real_rate = 300;
-%this means to create a time vector starting from 0, with a step of 1/real_rate, all the way up till ending time
-%ending time is determined by looking at .mat data; make sure this t vector matches up with data_ch1
+%create a time vector starting from 0, step of 1/real_rate, all the way up till ending time
+%ending time is determined by looking at .mat data
+% make sure this t vector matches up with data_ch1
 t = [0:1/real_rate:(length(data_ch1)-1)/real_rate]';
 
 %set the input; make sure this aligns with the output data results
@@ -53,6 +50,6 @@ print('-dpng', '-r300', '-opengl', 'analyse2.png')
 fprintf('Plot of analysis2 saved in the current directory\n')
 ```
 
-## Interface with `C++`
+## Notes
 
-We save our `.mat` data to `.txt` file for easier data processing in `C++`
+- In `MATLAB`, all functions must come after executable scripts, at the end

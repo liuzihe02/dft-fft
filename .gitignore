@@ -31,5 +31,10 @@
 *.out
 *.app
 
-#ignore results like iamges
+#ignore results like images
 *.png
+#data files like txt files
+*.txt
+
+#ignore vsc stuff
+.vscode
