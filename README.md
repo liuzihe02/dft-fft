@@ -55,3 +55,4 @@ fprintf('Plot of analysis2 saved in the current directory\n')
 ## Notes
 
 - In `MATLAB`, all functions must come after executable scripts, at the end
+- `MATLAB` uses 1-based indexing!
