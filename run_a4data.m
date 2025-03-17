@@ -25,6 +25,7 @@ data_out = sin(2*pi*input_freq*t);
 %% DFT/FFT TRANSOROMATION
 
 %we only need to analyse channel 2 since channel 1 is the input force transducer
+%replace the function here with the APPROPRIATE FUNCTION FROM SRC
 f_ch2 = fft_vectorized(data_ch2);
 
 %% PLOT DATA
@@ -38,13 +39,13 @@ figure
 hold on
 plot(f, abs(f_ch2));
 
-title('Transform of channel 2')
+title('Transform of channel 2 Data')
 % V = axis;
 % axis([0 50 V(3) V(4)])
 
 % Save the most recent figure with explicit renderer settings, if some renders dont work, try either opengl or painters
 %print('-dpng', '-r300', '-opengl', 'myanalyse.png')
-print('-dpng','-r300','-painters','myanalyse.png');
+print('-dpng','-r300','-painters','a4_spectrum.png');
 
 fprintf('Plot of analysis saved in the current directory\n')
 
