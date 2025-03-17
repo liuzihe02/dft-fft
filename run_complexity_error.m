@@ -16,7 +16,7 @@ N_values = 2.^(k_min:k_max);  % sequence lengths
 
 % Number of times to run each experiment (enter desired number of runs)
 % This is so we can compute error bars
-num_expt = 5;  % Change this number as needed
+num_expt = 100;  % Change this number as needed
 
 % Preallocate matrices to store runtime measurements and RMSE values.
 % Rows correspond to different sequence lengths; columns correspond to experiment repetitions.
@@ -73,41 +73,34 @@ mean_rmse_fft = mean(rmse_fft_all, 2);
 std_rmse_fft  = std(rmse_fft_all, 0, 2);
 
 %% PLOTTING THE COMPLEXITY RESULTS WITH ERROR BARS
-figure;
-% Plot DFT mean runtime with error bars
+fig1 = figure;
 errorbar(N_values, mean_runtime_dft, std_runtime_dft, '-o', 'LineWidth', 2);
 hold on;
-% Plot FFT mean runtime with error bars
 errorbar(N_values, mean_runtime_fft, std_runtime_fft, '-s', 'LineWidth', 2);
 xlabel('Sequence Length (N)');
 ylabel('Runtime (seconds)');
-title('Algorithmic Complexity: dft\_vectorized vs fft\_vectorized');
-legend('dft\_vectorized', 'fft\_vectorized', 'Location', 'NorthWest');
+title('Algorithmic of DFT and FFT');
+legend('DFT', 'FFT', 'Location', 'NorthWest');
 grid on;
-
-% Set axes to logarithmic scale for both X and Y axes
 set(gca, 'XScale', 'log', 'YScale', 'log');
 hold off;
-
-% Save the plot as a PNG image with specified renderer settings
-print('-dpng', '-r300', '-painters', 'complexity.png');
+drawnow;  % ensure the figure is fully rendered
+print(fig1, 'complexity.png', '-dpng', '-r300', '-painters');
 fprintf('Algorithm complexity plot saved\n');
 
+
 %% PLOTTING RMSE (RECONSTRUCTION ERROR) WITH ERROR BARS
-figure;
-% Plot RMSE for reconstruction using dft_vectorized with MATLAB's ifft
+fig2 = figure;
 errorbar(N_values, mean_rmse_dft, std_rmse_dft, '-o', 'LineWidth', 2);
 hold on;
-% Plot RMSE for reconstruction using fft_vectorized with MATLAB's ifft
 errorbar(N_values, mean_rmse_fft, std_rmse_fft, '-s', 'LineWidth', 2);
 xlabel('Sequence Length (N)');
 ylabel('RMSE');
-title('Reconstruction Error (RMSE) via MATLAB IDFT');
+title('Reconstruction Error (RMSE)');
 legend('DFT-based reconstruction', 'FFT-based reconstruction', 'Location', 'NorthWest');
 grid on;
-set(gca, 'XScale', 'log'); % Logarithmic x-axis is usually sufficient here
+set(gca, 'XScale', 'log');
 hold off;
-
-% Save the RMSE plot as a PNG image
-print('-dpng', '-r300', '-painters', 'rmse_analysis.png');
-fprintf('RMSE analysis plot saved as rmse_analysis.png\n');
+drawnow;  % ensure rendering
+print(fig2, 'rmse.png', '-dpng', '-r300', '-painters');
+fprintf('RMSE analysis plot saved\n');
