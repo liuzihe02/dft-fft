@@ -57,3 +57,4 @@ fprintf('Plot of analysis2 saved in the current directory\n')
 
 - In `MATLAB`, all functions must come after executable scripts, at the end
 - `MATLAB` uses 1-based indexing!
+- If `MATLAB` terminal is causing issues, try using `clear` command to clean up the workspace before running your experiments again
