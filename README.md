@@ -1,5 +1,5 @@
 # Investigation of DFT and FFT
-Investigating the Discrete Fourier Transform (DFT) and Fast Fourier Transform (FFT), with applications to response of buildings in earthquakes. We implement these algorithims in `C++` due to much faster execution time (most of `MATLAB`'s functions are written in compiled `C/C++` anyway).
+Investigating the Discrete Fourier Transform (DFT) and Fast Fourier Transform (FFT), with applications to response of buildings in earthquakes.
 
 ## A4 Lab
 
@@ -12,12 +12,13 @@ We run the A4 lab remotely to speed up gathering and processing of data. `F0` is
 3. files of the form `sweep1to20_F0AZ_N.mat`  : which give the data resulting from  outputting a chirp signal between 1 and 20 Hz (otherwise as in 1.). See Lab Sheet B for more detail.
 4. files of the form `random20timesLarger_F0AZ_N.mat`  : which give the data resulting from  outputting a superposition of sine waves with random phases (otherwise as in 1. but data has been amplified by a factor of 20).
 
+## Repo Structure
 
-### A4 Script
+Our implementations of DFT and FFT are stored in the `src` folder. Scripts titled `run_a4.m` call these functions for data processing and plotting accordingly.
 
-I have set up the A4 lab `matlab` code in the `/a4` folder and relevant data in `/data`.
+### Running Experiment A4
 
-Most code I've written is in `dft_fft.m`, which is a modified version of th following: (assuming we are in the home directory):
+I have set up the A4 lab `matlab` code in the `/a4` folder and relevant data in `/data`. The following contains a summarized script to run the A4 experiments remotely: (assuming we are in the home directory):
 
 ```matlab
 
