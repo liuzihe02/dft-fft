@@ -17,7 +17,7 @@ input_freq=5;
 data_out = sin(2*pi*input_freq*t);
 
 %we only need to analyse channel 2 since channel 1 is the input force transducer
-f_ch2 = fft(data_ch2);
+f_ch2 = dft_vectorized(data_ch2);
 x=t*real_rate/(t(length(t)));
 
 figure
@@ -38,15 +38,15 @@ hold off
 
 
 
-% %% Custom DFT Function
-% % This function computes the Discrete Fourier Transform (DFT) of an input vector.
-% function X = my_dft_vectorized(x)
-%     N = length(x);       % Number of samples in the signal
-%     n = 0:N-1;           % create a row array of Time indices
-%     % ' is the transpose operation
-%     k = n';              % Frequency indices as a column vector
-%     % Create the DFT matrix using the formula exp(-j*2*pi*k*n/N)
-%     % this is an outer product, which gives the DFT matrix
-%     W = exp(-1j * 2 * pi * k * n / N);
-%     X = W * x(:); % Multiply the DFT matrix by the input signal (converted to a column vector), the (:) operator converts it to a column vector
-% end
+%% Custom DFT Function
+% This function computes the Discrete Fourier Transform (DFT) of an input vector.
+function X = dft_vectorized(x)
+    N = length(x);       % Number of samples in the signal
+    n = 0:N-1;           % create a row array of Time indices
+    % ' is the transpose operation
+    k = n';              % Frequency indices as a column vector
+    % Create the DFT matrix using the formula exp(-j*2*pi*k*n/N)
+    % this is an outer product, which gives the DFT matrix
+    W = exp(-1j * 2 * pi * k * n / N);
+    X = W * x(:); % Multiply the DFT matrix by the input signal (converted to a column vector), the (:) operator converts it to a column vector
+end
