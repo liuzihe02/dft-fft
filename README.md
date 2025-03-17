@@ -15,7 +15,9 @@ We run the A4 lab remotely to speed up gathering and processing of data. `F0` is
 
 ### A4 Script
 
-I have set up the A4 lab `matlab` code in the `/a4` folder and relevant data in `/data`. To generate figures as in the A4 lab, run the following matlab code (assuming we are in the home directory):
+I have set up the A4 lab `matlab` code in the `/a4` folder and relevant data in `/data`.
+
+Most code I've written is in `dft_fft.m`, which is a modified version of th following: (assuming we are in the home directory):
 
 ```matlab
 
