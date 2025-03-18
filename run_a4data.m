@@ -26,7 +26,7 @@ data_out = sin(2*pi*input_freq*t);
 
 %we only need to analyse channel 2 since channel 1 is the input force transducer
 %replace the function here with the APPROPRIATE FUNCTION FROM SRC
-f_ch2 = fft_vectorized(data_ch2);
+f_ch2 = dft_vectorized(data_ch2);
 
 %% PLOT DATA
 

@@ -33,6 +33,7 @@
 
 #ignore results like images
 *.png
+*.jpg
 #data files like txt files
 *.txt
 

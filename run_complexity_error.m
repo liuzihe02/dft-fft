@@ -16,7 +16,7 @@ N_values = 2.^(k_min:k_max);  % sequence lengths
 
 % Number of times to run each experiment (enter desired number of runs)
 % This is so we can compute error bars
-num_expt = 5;  % Change this number as needed
+num_expt = 10;  % Change this number as needed
 
 % Preallocate matrices to store runtime measurements and RMSE values.
 % Rows correspond to different sequence lengths; columns correspond to experiment repetitions.
