@@ -24,6 +24,7 @@ function X = fft_vectorized(x)
     X_odd  = fft_vectorized(x(2:2:end)); % selects all the odd indices
     
     % Compute twiddle factors (complex exponentials) in a vectorized manner
+    % row array
     factor = exp(-1j * 2 * pi * (0:N/2-1).' / N);
     
     % Combine the FFTs of the even and odd parts using the butterfly operation
